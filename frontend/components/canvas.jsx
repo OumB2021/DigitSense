@@ -25,7 +25,7 @@ export default function DigitCanvas({ onSubmit }) {
     if (!ctx) return;
 
     ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
-    ctx.strokeStyle = "white";
+    ctx.strokeStyle = "black";
     ctx.lineWidth = 10;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
@@ -42,7 +42,7 @@ export default function DigitCanvas({ onSubmit }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "#d4d4d8";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   };
 
@@ -54,7 +54,7 @@ export default function DigitCanvas({ onSubmit }) {
   };
 
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className="flex flex-col items-center gap-4 mx-4">
       <canvas
         ref={canvasRef}
         width={500}

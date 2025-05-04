@@ -8,7 +8,6 @@ function Header() {
       <h1 className="text-lg md:text-4xl font-semibold text-center text-gray-800">
         ML Digit <span className="text-[#FB9696] font-bold">Recognition</span>
       </h1>
-      <DigitCanvas />
     </div>
   );
 }
