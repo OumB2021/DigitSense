@@ -50,20 +50,20 @@ export default function DigitCanvas({ onSubmit }) {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const image = canvas.toDataURL("image/png");
-    onSubmit(image); // send base64 image to backend
+    onSubmit(image);
   };
 
   return (
     <div className="flex flex-col items-center gap-4">
       <canvas
         ref={canvasRef}
-        width={280}
-        height={280}
+        width={500}
+        height={500}
         onMouseDown={startDrawing}
         onMouseMove={draw}
         onMouseUp={stopDrawing}
         onMouseLeave={stopDrawing}
-        className="border-2 border-gray-300 rounded shadow-md bg-black cursor-crosshair"
+        className="border-1 border-zinc-400 rounded-lg bg-zinc-300 cursor-crosshair"
       />
       <div className="flex gap-4">
         <button
