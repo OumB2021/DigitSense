@@ -1,15 +1,43 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Github } from "lucide-react";
 
 function Navbar() {
   return (
-    <div className="absolute top-0 w-full  z-50 border-b-[1px] border-zinc-300 p-4">
-      <div className="flex items-center justify-center max-w-7xl mx-auto">
-        <Image src="/icon.png" height={40} width={40} alt="icon" />
-        <h1 className="text-lg md:text-4xl font-semibold text-center text-gray-800">
-          ML Digit <span className="text-[#FB9696] font-bold">Recognition</span>
-        </h1>
+    <header className="sticky top-0 z-40 border-b-[1px] border-zinc-300 bg-white/80 backdrop-blur-sm">
+      <div className="flex h-16 items-center justify-between max-w-7xl mx-auto ">
+        <div className="flex items-center gap-2">
+          <span className="text-xl font-bold tracking-tight">DigitSense</span>
+        </div>
+        <nav className="flex items-center gap-6">
+          <Link
+            href="#features"
+            className="text-sm font-medium text-gray-600 hover:text-gray-900"
+          >
+            Features
+          </Link>
+          <Link
+            href="#demo"
+            className="text-sm font-medium text-gray-600 hover:text-gray-900"
+          >
+            Demo
+          </Link>
+          <Link
+            href="#about"
+            className="text-sm font-medium text-gray-600 hover:text-gray-900"
+          >
+            About
+          </Link>
+          <Link
+            href="https://github.com"
+            className="flex items-center gap-1 rounded-full bg-gray-900 px-4 py-1.5 text-sm font-medium text-white hover:bg-gray-800"
+          >
+            <Github className="h-4 w-4" />
+            <span>GitHub</span>
+          </Link>
+        </nav>
       </div>
-    </div>
+    </header>
   );
 }
 export default Navbar;
