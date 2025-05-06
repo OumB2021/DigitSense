@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Github } from "lucide-react";
 
@@ -10,18 +9,6 @@ function Navbar() {
           <span className="text-xl font-bold tracking-tight">DigitSense</span>
         </div>
         <nav className="flex items-center gap-6">
-          <Link
-            href="#features"
-            className="text-sm font-medium text-gray-600 hover:text-gray-900"
-          >
-            Features
-          </Link>
-          <Link
-            href="#demo"
-            className="text-sm font-medium text-gray-600 hover:text-gray-900"
-          >
-            Demo
-          </Link>
           <Link
             href="#about"
             className="text-sm font-medium text-gray-600 hover:text-gray-900"
