@@ -1,5 +1,6 @@
 import About from "@/components/about";
 import DigitCanvas from "@/components/canvas";
+import Cta from "@/components/cta";
 import Features from "@/components/features";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
       <Features />
       <About />
+      <Cta />
     </div>
   );
 }

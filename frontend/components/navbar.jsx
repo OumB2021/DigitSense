@@ -4,7 +4,7 @@ import { Github } from "lucide-react";
 
 function Navbar() {
   return (
-    <header className="sticky top-0 z-40 border-b-[1px] border-zinc-300 bg-white/60 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 border-b-[1px] border-zinc-300 bg-white/60 backdrop-blur-sm px-10">
       <div className="flex h-16 items-center justify-between max-w-7xl mx-auto ">
         <div className="flex items-center gap-2">
           <span className="text-xl font-bold tracking-tight">DigitSense</span>

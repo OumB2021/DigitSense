@@ -4,7 +4,7 @@ function Features() {
   return (
     <section
       id="features"
-      className="border-t-[1px] border-zinc-300 bg-zinc-100 py-24 w-full"
+      className="border-t-[1px] border-zinc-300 bg-zinc-100 py-24 md:py-32 w-full px-10"
     >
       <div className="container space-y-12 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
@@ -17,7 +17,7 @@ function Features() {
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-3">
-          <div className="rounded-lg border border-zinc-300 bg-white p-6 shadow-sm">
+          <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm">
             <div className="mb-4 rounded-full bg-zinc-100 p-3 w-12 h-12 flex items-center justify-center">
               <File className="text-zinc-700" strokeWidth={1.5} />
             </div>
@@ -27,7 +27,7 @@ function Features() {
               digit images.
             </p>
           </div>
-          <div className="rounded-lg border border-zinc-300 bg-white p-6 shadow-sm">
+          <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm">
             <div className="mb-4 rounded-full bg-zinc-100 p-3 w-12 h-12 flex items-center justify-center">
               <Paintbrush className="text-zinc-700" strokeWidth={1.5} />
             </div>
@@ -37,7 +37,7 @@ function Features() {
               from the model.
             </p>
           </div>
-          <div className="rounded-lg border border-zinc-300 bg-white p-6 shadow-sm">
+          <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm">
             <div className="mb-4 rounded-full bg-zinc-100 p-3 w-12 h-12 flex items-center justify-center">
               <CircleCheck className="text-zinc-700" strokeWidth={1.5} />
             </div>

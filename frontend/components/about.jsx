@@ -2,7 +2,7 @@ function About() {
   return (
     <section
       id="about"
-      className="border-t-[1px] border-zinc-300 bg-zinc-50 py-24 md:py-32 w-full"
+      className="border-t-[1px] border-zinc-300 bg-zinc-50 py-24 md:py-32 w-full px-10"
     >
       <div className="container mx-auto max-w-3xl space-y-8">
         <div className="text-center">
@@ -15,7 +15,7 @@ function About() {
           </p>
         </div>
         <div className="space-y-6">
-          <div className="rounded-lg border bg-white p-6 shadow-sm">
+          <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm">
             <h3 className="text-xl font-bold">The MNIST Dataset</h3>
             <p className="mt-2 text-zinc-500">
               The MNIST database (Modified National Institute of Standards and
@@ -25,7 +25,7 @@ function About() {
               testing images.
             </p>
           </div>
-          <div className="rounded-lg border bg-white p-6 shadow-sm">
+          <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm">
             <h3 className="text-xl font-bold">The Model</h3>
             <p className="mt-2 text-zinc-500">
               We've trained a convolutional neural network (CNN) on the MNIST
@@ -34,7 +34,7 @@ function About() {
               on the test set.
             </p>
           </div>
-          <div className="rounded-lg border bg-white p-6 shadow-sm">
+          <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm">
             <h3 className="text-xl font-bold">The Tech Stack</h3>
             <p className="mt-2 text-zinc-500">
               This project uses Next.js for the frontend, with React for UI
