@@ -3,7 +3,7 @@ import DigitCanvas from "../../components/canvas";
 function page() {
   return (
     <div className="flex flex-col items-center justify-center  w-full px-10">
-      <section id="demo" className="py-24 md:py-32">
+      <section id="demo" className="py-24">
         <div className="container">
           <div className="mx-auto max-w-3xl space-y-8">
             <div className="text-center">
