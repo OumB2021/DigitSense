@@ -3,7 +3,7 @@
 import { RefreshCw, Trash2 } from "lucide-react";
 import { useRef, useState } from "react";
 
-export default function DigitCanvas({ onSubmit }) {
+export default function DigitCanvas() {
   const canvasRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -30,7 +30,7 @@ export default function DigitCanvas({ onSubmit }) {
 
     ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
     ctx.strokeStyle = "black";
-    ctx.lineWidth = 10;
+    ctx.lineWidth = 30;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.stroke();
@@ -46,15 +46,33 @@ export default function DigitCanvas({ onSubmit }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#f4f4f5";
+    ctx.fillStyle = "#FFFFFF";
+    setPrediction(null);
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const image = canvas.toDataURL("image/png");
-    onSubmit(image);
+
+    try {
+      const res = await fetch("http://localhost:5001/predict", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ image: image }),
+      });
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await res.json();
+      setPrediction(data.prediction);
+      alert(`Predicted Digit: ${data.prediction}`);
+    } catch (error) {
+      console.error("Prediction failed:", err);
+    }
   };
 
   return (
@@ -70,7 +88,7 @@ export default function DigitCanvas({ onSubmit }) {
             Clear
           </button>
           <button
-            onClick={() => {}}
+            onClick={handleSubmit}
             className="flex items-center gap-1 px-3 py-1  text-zinc-800 border-1 border-zinc-300 rounded-md cursor-pointer"
             disabled={loading}
           >
@@ -90,7 +108,7 @@ export default function DigitCanvas({ onSubmit }) {
             onMouseMove={draw}
             onMouseUp={stopDrawing}
             onMouseLeave={stopDrawing}
-            className="w-full h-full cursor-crosshair bg-zinc-100"
+            className="w-full h-full cursor-crosshair bg-white"
           />
         </div>
 

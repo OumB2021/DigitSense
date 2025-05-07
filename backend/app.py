@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import numpy as np
 import tensorflow as tf
-from PIL import Image
+from PIL import Image, ImageOps, ImageFilter
 import io
 import base64
 import logging
@@ -37,7 +37,6 @@ def predict():
         if not data or "image" not in data:
             return jsonify({"error": "No image data provided"}), 400
 
-        # Decode base64 image
         try:
             header, encoded = data["image"].split(",", 1)
             image_data = base64.b64decode(encoded)
@@ -47,11 +46,17 @@ def predict():
 
         # Preprocess image
         image = image.resize((28, 28))
+        image = ImageOps.invert(image)
         image_array = np.array(image)
-        
-        # Validate image
-        if image_array.max() > 255 or image_array.min() < 0:
-            return jsonify({"error": "Invalid pixel values"}), 400
+
+        # Invert the image: MNIST expects white digit on black background
+        image = ImageOps.invert(image)
+
+        # Optionally sharpen the image (helps preserve edges during resize)
+        image = image.filter(ImageFilter.SHARPEN)
+
+        # (Optional) Save for visual debugging
+        image.save("received_digit.png")
             
         image_array = image_array / 255.0  # Normalize
         image_array = image_array.reshape(1, 28, 28, 1)  # Reshape for model
