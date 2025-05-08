@@ -9,13 +9,13 @@ function Cta() {
           Ready to explore more?
         </h2>
         <p className="mx-auto mt-4 max-w-[600px] text-gray-300">
-          Check out the source code on GitHub to learn how we built this project
+          Check out the source code on GitHub to learn how I built this project
           and how you can implement your own machine learning models with
           Next.js.
         </p>
         <div className="mt-8">
           <Link
-            href="/predict"
+            href="/https://github.com/OumB2021/DigitSense"
             className="inline-flex h-10 items-center justify-center rounded-md bg-white px-8 text-sm font-medium text-gray-900 shadow transition-colors hover:bg-gray-100"
           >
             <Github className="mr-2 h-4 w-4" />
