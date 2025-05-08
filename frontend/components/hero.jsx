@@ -34,11 +34,12 @@ function Hero() {
           <div className="flex items-center justify-center">
             <div className="relative h-[300px] w-[300px] overflow-hidden rounded-lg border border-zinc-200 bg-zinc-50 p-2 shadow-lg md:h-[400px] md:w-[400px]">
               <Image
-                src="/placeholder.svg?height=400&width=400"
+                src="/image.png"
                 width={400}
                 height={400}
                 alt="MNIST dataset visualization"
                 className="object-cover"
+                priority
               />
             </div>
           </div>

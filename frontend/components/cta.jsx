@@ -1,3 +1,4 @@
+import { Github } from "lucide-react";
 import Link from "next/link";
 
 function Cta() {
@@ -17,7 +18,8 @@ function Cta() {
             href="/predict"
             className="inline-flex h-10 items-center justify-center rounded-md bg-white px-8 text-sm font-medium text-gray-900 shadow transition-colors hover:bg-gray-100"
           >
-            Predict
+            <Github className="mr-2 h-4 w-4" />
+            Github
           </Link>
         </div>
       </div>

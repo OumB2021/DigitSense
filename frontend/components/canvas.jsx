@@ -48,6 +48,7 @@ export default function DigitCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#FFFFFF";
     setPrediction(null);
+    setConfidence(null);
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   };
 
@@ -55,21 +56,27 @@ export default function DigitCanvas() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const image = canvas.toDataURL("image/png");
-
+    setLoading(true);
     try {
-      const res = await fetch("http://localhost:5001/predict", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ image: image }),
-      });
+      const res = await fetch(
+        "https://smiling-impala-highly.ngrok-free.app/predict",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ image: image }),
+        }
+      );
       if (!res.ok) {
         throw new Error("Network response was not ok");
       }
       const data = await res.json();
-      setPrediction(data.prediction);
-      alert(`Predicted Digit: ${data.prediction}`);
+      const predictedDigit = data.prediction;
+      const probability = data.probabilities[predictedDigit] * 100;
+      setPrediction(predictedDigit);
+      setConfidence(probability);
+      setLoading(false);
     } catch (error) {
       console.error("Prediction failed:", err);
     }
@@ -127,7 +134,9 @@ export default function DigitCanvas() {
           {confidence !== null && !loading && (
             <div className="text-center">
               <h4 className="text-sm font-medium text-zinc-500">Confidence</h4>
-              <div className="mt-1 text-xl font-medium">{confidence}%</div>
+              <div className="mt-1 text-xl font-medium">
+                {Math.round(confidence)}%
+              </div>
               <div className="mt-2 h-2 w-full bg-zinc-200 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-zinc-900 rounded-full"
