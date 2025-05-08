@@ -58,13 +58,16 @@ export default function DigitCanvas() {
     const image = canvas.toDataURL("image/png");
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5001/predict", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ image: image }),
-      });
+      const res = await fetch(
+        "https://smiling-impala-highly.ngrok-free.app/predict",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ image: image }),
+        }
+      );
       if (!res.ok) {
         throw new Error("Network response was not ok");
       }
